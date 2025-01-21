@@ -219,6 +219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile: {fileID: 11400000, guid: 66c3022bbc930b64c92ee51a33f210aa, type: 2}
   health: 5
+  drop: 0
 --- !u!1 &316022499
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,8 +268,6 @@ MonoBehaviour:
   wallManager: {fileID: 2135087136}
   floors:
   - {fileID: 11400000, guid: 45e70beb73f89ca4eb45e0a24d9419ca, type: 2}
-  - {fileID: 11400000, guid: 45e70beb73f89ca4eb45e0a24d9419ca, type: 2}
-  - {fileID: 11400000, guid: a5500ac2b8e1a16418b5f411d183855d, type: 2}
   walls: []
   biome: Plains
   variation: 0.05
@@ -301,26 +300,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad38b39e262c304782f7dd40d73ca40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noodleCaveHeight: 0.5
+  largeCaveHeight: 0.6
+  ores:
+  - {fileID: 1239496063}
+  - {fileID: 1916442950}
+  - {fileID: 939162673}
+  - {fileID: 1377985107}
+  - {fileID: 1377985107}
+  oreHeights:
+  - 0.7
+  - 0.8
+  - 0.95
+  - 0.77
+  - 0.8
+  oreReplacement:
+  - {fileID: 11400000, guid: 66c3022bbc930b64c92ee51a33f210aa, type: 2}
+  - {fileID: 11400000, guid: d6d29aeffa0af9d4eb99feefab730441, type: 2}
+  - {fileID: 11400000, guid: d6d29aeffa0af9d4eb99feefab730441, type: 2}
+  - {fileID: 11400000, guid: d6d29aeffa0af9d4eb99feefab730441, type: 2}
+  - {fileID: 11400000, guid: 66c3022bbc930b64c92ee51a33f210aa, type: 2}
+  wallManager: {fileID: 2135087136}
   biomes:
-  - {fileID: 101181990}
-  - {fileID: 1246958506}
-  - {fileID: 907837235}
-  - {fileID: 316022499}
-  - {fileID: 316022499}
-  - {fileID: 316022499}
-  - {fileID: 993244417}
-  - {fileID: 1886485383}
-  - {fileID: 1886485383}
-  - {fileID: 1886485383}
-  - {fileID: 1886485383}
   - {fileID: 1886485383}
   - {fileID: 810728187}
-  - {fileID: 810728187}
-  - {fileID: 810728187}
-  - {fileID: 810728187}
-  - {fileID: 810728187}
-  - {fileID: 810728187}
-  biomeVaritaion: 0.02
 --- !u!4 &449975079
 Transform:
   m_ObjectHideFlags: 0
@@ -475,6 +478,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WorldGen: {fileID: 449975077}
   wallManager: {fileID: 2135087136}
+  player: {fileID: 1261796430}
   worldX: 300
   worldY: 300
   Seed: 0
@@ -524,6 +528,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile: {fileID: 11400000, guid: d6d29aeffa0af9d4eb99feefab730441, type: 2}
   health: 15
+  drop: 0
 --- !u!4 &801334502
 Transform:
   m_ObjectHideFlags: 0
@@ -796,6 +801,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1136540159}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &939162671
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 939162672}
+  - component: {fileID: 939162673}
+  m_Layer: 0
+  m_Name: EmeraldData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &939162672
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939162671}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1759404482}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &939162673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939162671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cef335d99037e4243b3b10c708356e54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tile: {fileID: 11400000, guid: a5500ac2b8e1a16418b5f411d183855d, type: 2}
+  health: 15
+  drop: 3
 --- !u!1 &951661844
 GameObject:
   m_ObjectHideFlags: 0
@@ -842,6 +894,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile: {fileID: 11400000, guid: 5a17c1c3441ff364bb5e1512474f699a, type: 2}
   health: 10
+  drop: 0
 --- !u!1 &993244417
 GameObject:
   m_ObjectHideFlags: 0
@@ -1093,6 +1146,53 @@ Transform:
   - {fileID: 993244418}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1239496061
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1239496062}
+  - component: {fileID: 1239496063}
+  m_Layer: 0
+  m_Name: IronData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1239496062
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239496061}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1759404482}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1239496063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239496061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cef335d99037e4243b3b10c708356e54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tile: {fileID: 11400000, guid: 261b678b80583d941ae95b58cd452712, type: 2}
+  health: 10
+  drop: 1
 --- !u!1 &1246958506
 GameObject:
   m_ObjectHideFlags: 0
@@ -1270,6 +1370,53 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8, y: 0.8}
   m_EdgeRadius: 0
+--- !u!1 &1377985105
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1377985106}
+  - component: {fileID: 1377985107}
+  m_Layer: 0
+  m_Name: GoldData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1377985106
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377985105}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1759404482}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1377985107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377985105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cef335d99037e4243b3b10c708356e54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tile: {fileID: 11400000, guid: 2a6d0dc314ee60343833c3b839f6544a, type: 2}
+  health: 10
+  drop: 4
 --- !u!1 &1599617839
 GameObject:
   m_ObjectHideFlags: 0
@@ -1326,7 +1473,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1759404482}
   m_Layer: 0
-  m_Name: TileData
+  m_Name: WallData
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1348,6 +1495,10 @@ Transform:
   - {fileID: 801334502}
   - {fileID: 156657337}
   - {fileID: 951661845}
+  - {fileID: 1239496062}
+  - {fileID: 1916442949}
+  - {fileID: 939162672}
+  - {fileID: 1377985106}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1776714997
@@ -1513,13 +1664,60 @@ MonoBehaviour:
   floorMap: {fileID: 1077932148}
   wallManager: {fileID: 2135087136}
   floors:
-  - {fileID: 11400000, guid: 64b320f50c10d274b98a13ba504bdf3c, type: 2}
+  - {fileID: 11400000, guid: 54865b1529ddc134ba23c15380291955, type: 2}
   walls:
   - {fileID: 156657338}
   - {fileID: 156657338}
   - {fileID: 951661846}
   biome: Caves
   variation: 0.04
+--- !u!1 &1916442948
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1916442949}
+  - component: {fileID: 1916442950}
+  m_Layer: 0
+  m_Name: DiamondData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1916442949
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916442948}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1759404482}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1916442950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916442948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cef335d99037e4243b3b10c708356e54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tile: {fileID: 11400000, guid: 912cd994923be714d90d75e04f43f4bf, type: 2}
+  health: 20
+  drop: 2
 --- !u!1 &2081872629
 GameObject:
   m_ObjectHideFlags: 0
@@ -1924,5 +2122,5 @@ SceneRoots:
   - {fileID: 1261796433}
   - {fileID: 1136540159}
   - {fileID: 882762452}
-  - {fileID: 1759404482}
   - {fileID: 1792665021}
+  - {fileID: 1759404482}

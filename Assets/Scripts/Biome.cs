@@ -10,7 +10,7 @@ public class Biome : MonoBehaviour
     public Tilemap floorMap;
     public GameObject wallManager;
     public Tile[] floors;
-    public TileData[] walls;
+    public WallData[] walls;
     public string biome;
     public float variation;
     private float xOrigin;
