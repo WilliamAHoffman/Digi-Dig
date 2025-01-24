@@ -1,9 +1,4 @@
-using System.Linq;
-using Unity.Collections;
-using UnityEditor;
-using UnityEditor.U2D.Aseprite;
 using UnityEngine;
-using UnityEngine.Assertions.Must;
 using UnityEngine.Tilemaps;
 
 public class WallManager : MonoBehaviour

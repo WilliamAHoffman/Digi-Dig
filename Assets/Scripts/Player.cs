@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public Rigidbody2D rb2d;
     public GameObject graphics;
     public GameObject gunPoint;
+    public GameObject vision;
     private Vector2 moveInput;
     private Vector3 mousePos;
     private InputAction move;
@@ -63,6 +64,7 @@ public class Player : MonoBehaviour
         Vector3 lookTowards = new Vector3(mousePos.x - transform.position.x, mousePos.y - transform.position.y, 0);
         graphics.transform.up = lookTowards;
         gunPoint.transform.up = lookTowards;
+        vision.transform.up = lookTowards;
     }
 
     void Movement(){
