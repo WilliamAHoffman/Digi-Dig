@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
         }
         wallManager.GetComponent<WallManager>().setWorld(worldX,worldY);
         WorldGen.GetComponent<WorldGen>().GenerateWorld(worldX, worldY, Seed);
-        SpawnPlayer();
+        //SpawnPlayer();
     }
 
     void SpawnPlayer(){
