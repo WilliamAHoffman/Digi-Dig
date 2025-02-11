@@ -13,6 +13,7 @@ public class Bullet : MonoBehaviour
     public int damage;
     public float lifeTime;
     public Rigidbody2D rb2d;
+    public GameObject owner;
     private float timeLeft;
     void Start()
     {
@@ -30,12 +31,15 @@ public class Bullet : MonoBehaviour
     public void setDamage(int gunDamage){
         damage += gunDamage;
     }
+    public void setOwner(GameObject owner){
+        this.owner = owner;
+    }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
 
         if(collision.gameObject.GetComponent<Damage>()){
-            collision.gameObject.GetComponent<Damage>().hit(damage);
+            collision.gameObject.GetComponent<Damage>().hit(damage, owner);
         }
         else if(collision.gameObject.GetComponent<WallManager>()){
             Vector3 hitPosition = Vector3.zero;

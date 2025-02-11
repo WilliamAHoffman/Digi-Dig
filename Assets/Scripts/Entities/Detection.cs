@@ -35,7 +35,7 @@ public class Detection : MonoBehaviour
             }
             else if(Vector3.Distance(target.transform.position, gameObject.transform.position) > agroDistance){
                 targets.Remove(target);
-                Debug.Log(gameObject.name + " :removed far target:" + target.name);
+                Debug.Log(gameObject.name + " :removed far target: " + target.name);
             }
             else if(closestTarget == null){
                  closestTarget = target;
@@ -53,7 +53,7 @@ public class Detection : MonoBehaviour
         Debug.Log(collider.name);
         GameObject target = collider.GameObject();
         Debug.Log(target.name);
-        foreach(string agro in agression.agros){
+        foreach(string agro in agression.hates){
             if(target.tag == agro){
                 targets.Add(target);
                 targetTimer = agroTime;

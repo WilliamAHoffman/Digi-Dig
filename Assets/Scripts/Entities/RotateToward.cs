@@ -5,25 +5,47 @@ using UnityEngine;
 public class RotateToward : MonoBehaviour
 {
     public Transform target;
-    public float speed;
+    public float rotationSpeed = 5f;
     private Agression agression;
+
 
     void Start()
     {
         agression = gameObject.GetComponent<Agression>();
     }
-    void Update()
+ void Update()
     {
-        target = null;
-        if(agression.currentTarget != null){
+        if (agression.currentTarget != null)
+        {
             target = agression.currentTarget.transform;
         }
+        else{
+            target = null;
+        }
+
         if(target != null){
-            Vector3 lookTowards = new Vector3(target.position.x - transform.position.x, target.position.y - transform.position.y, 0);
-            transform.up = lookTowards;
-            //Vector3 relativePos = target.position - transform.position;
-            //Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
-            //transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.time * speed);
+            // Calculate the direction to the target
+            Vector3 direction = target.position - transform.position;
+
+            // Calculate the angle (in degrees) to rotate towards
+            float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f; // Subtract 90 degrees for sprite orientation
+
+            // Create a target rotation (as a Quaternion)
+            Quaternion targetRotation = Quaternion.Euler(0, 0, targetAngle);
+
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+        }
+
+    }
+
+    // Optional: Draw a gizmo in the editor to visualize the target point
+    void OnDrawGizmosSelected()
+    {
+        if (target != null)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(target.position, 0.5f); // Draw a wire sphere at the target's position
+            Gizmos.DrawLine(transform.position, target.position); // Draw a line to the target
         }
     }
 }

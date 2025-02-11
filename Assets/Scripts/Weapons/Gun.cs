@@ -11,6 +11,7 @@ public class Gun : MonoBehaviour
     public float spread;
     public float shotDelay;
     public float reloadTime;
+    public GameObject flash;
     private float shotCountDown;
     private float reloadCountDown;
 
@@ -27,8 +28,10 @@ public class Gun : MonoBehaviour
             if(reloadCountDown <= 0 && shotCountDown <= 0){
                 clipAmmo--;
                 float randomSpread = Random.Range(-spread, spread);
+                Instantiate(flash, transform.position + transform.up, new Quaternion(0,0,0,0));
                 GameObject fired = Instantiate(bullet, transform.position + transform.up, new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z + randomSpread, transform.rotation.w));
                 fired.GetComponent<Bullet>().setDamage(damage);
+                fired.GetComponent<Bullet>().setOwner(transform.parent.gameObject);
                 shotCountDown = shotDelay;
             }
         }

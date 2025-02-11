@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8536545719791180411}
   - component: {fileID: 4337294380860593518}
   - component: {fileID: 5779921327031768154}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BasicBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,7 +50,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -86,6 +86,7 @@ MonoBehaviour:
   damage: 0
   lifeTime: 2
   rb2d: {fileID: 5779921327031768154}
+  owner: {fileID: 0}
 --- !u!50 &5779921327031768154
 Rigidbody2D:
   serializedVersion: 4
@@ -123,7 +124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3234253036739023019}
   - component: {fileID: 3106330890523395286}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
