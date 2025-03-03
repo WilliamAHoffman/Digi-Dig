@@ -15,6 +15,7 @@ public class WorldGen : MonoBehaviour
     public GameObject wallManager;
     public GameObject[] biomes;
     private float[,] heightMap;
+    public WallData border;
     private void fillNoiseMap(float xOrigin, float yOrigin, FastNoiseLite noise, float[,] map){
         int rows = map.GetLength(0);
         int columns = map.GetLength(0);
@@ -60,6 +61,17 @@ public class WorldGen : MonoBehaviour
                     }
                 }
             }
+        }
+    }
+
+    private void PlaceBorder(){
+        for(int i = 0; i < worldX; i++){
+            wallManager.GetComponent<WallManager>().SetWorldTile(border,i,0);
+            wallManager.GetComponent<WallManager>().SetWorldTile(border,worldX-1,i);
+        }
+        for(int i = 0; i < worldY; i++){
+            wallManager.GetComponent<WallManager>().SetWorldTile(border,0,i);
+            wallManager.GetComponent<WallManager>().SetWorldTile(border,i,worldY-1);
         }
     }
 
@@ -123,5 +135,6 @@ public class WorldGen : MonoBehaviour
             fillNoiseMap(xOrg, yOrg, oreNoise, oreMap);
             PlaceOre(oreMap, ores[i], oreHeights[i], oreReplacement[i]);
         }
+        PlaceBorder();
     }
 }
