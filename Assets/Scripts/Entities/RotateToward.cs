@@ -5,7 +5,7 @@ using UnityEngine;
 public class RotateToward : MonoBehaviour
 {
     public Transform target;
-    public float rotationSpeed = 5f;
+    public float rotationSpeed;
     private Agression agression;
 
 

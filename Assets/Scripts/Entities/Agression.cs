@@ -11,7 +11,7 @@ public class Agression : MonoBehaviour
     public Gun gun;
     public String[] hates;
     public String[] loves;
-    private float angerTimer;
+    public float angerTimer;
 
 
     void Update()

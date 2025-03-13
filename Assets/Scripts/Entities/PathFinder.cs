@@ -4,99 +4,6 @@ using UnityEngine.Tilemaps;
 
 public class PathFinder : MonoBehaviour
 {
-    float time = 1;
-    public Tile searchPath;
-    public Tile finalPath;
-    public Tilemap tilemap;
-    public int endx;
-    public int endy;
-    void Update()
-    {
-        time -= Time.deltaTime;
-        if(time <= 0){
-            bool[,] grid = GameObject.Find("WallManager").GetComponent<WallManager>().walkable;
-            PrintPath(grid, new Vector2Int(1,1) ,new Vector2Int(endx,endy));
-            time = 1;
-        }
-    }
-    void PrintPath(bool[,] grid, Vector2Int start, Vector2Int goal)
-    {
-
-        var path = BFS(grid, start, goal);
-
-        if (path != null)
-        {
-            Debug.Log("Path:");
-            foreach (var step in path)
-            {
-                tilemap.SetTile(new Vector3Int(step.x, step.y, 0), finalPath);
-                Debug.Log($"({step.x}, {step.y})");
-            }
-        }
-        else
-        {
-            Debug.Log("No path found.");
-        }
-    }
-
-        List<Vector2Int> BFS(bool[,] grid, Vector2Int start, Vector2Int end)
-    {
-        int rows = grid.GetLength(0);
-        int cols = grid.GetLength(1);
-        Debug.Log(rows + " " + cols);
-        var queue = new Queue<Vector2Int>();
-        var visited = new HashSet<Vector2Int>();
-        var parent = new Dictionary<Vector2Int, Vector2Int>();
-
-        queue.Enqueue(start);
-        visited.Add(start);
-        parent[start] = start;
-
-        Vector2Int[] directions = {
-            new Vector2Int(0,1), new Vector2Int(1,0), new Vector2Int(-1,0), new Vector2Int(0,-1)
-        };
-
-        while (queue.Count > 0)
-        {
-            Debug.Log(queue.Count);
-            var current = queue.Dequeue();
-            if (current.x == end.x && current.y == end.y)
-            {
-                Debug.Log("found path constuction");
-                return ConstructPath(parent, start, end);
-            }
-
-            foreach (var direction in directions)
-            {
-                int newX = current.x + direction.x;
-                int newY = current.y + direction.y;
-                var neighbor = new Vector2Int(newX, newY);
-
-                if (newX >= 0 && newX < rows && newY >= 0 && newY < cols && !visited.Contains(neighbor) && grid[newX, newY])
-                {
-                    tilemap.SetTile(new Vector3Int(neighbor.x, neighbor.y, 0), searchPath);
-                    queue.Enqueue(neighbor);
-                    visited.Add(neighbor);
-                    parent[neighbor] = current;
-                }
-            }
-        }
-
-        return null;
-    }
-
-        static List<Vector2Int> ConstructPath(Dictionary<Vector2Int, Vector2Int> parent, Vector2Int start, Vector2Int end)
-    {
-        var path = new List<Vector2Int>();
-        for (var current = end; current != start; current = parent[current])
-        {
-            path.Add(current);
-        }
-        path.Add(start);
-        path.Reverse();
-        return path;
-    }
-
     public List<Vector2Int> AStar(bool[,] grid, Vector2Int start, Vector2Int goal)
     {
         var openSet = new SortedSet<(int, Vector2Int)>(new Comparer());
@@ -124,7 +31,7 @@ public class PathFinder : MonoBehaviour
                 return path;
             }
 
-            foreach (var (dx, dy) in new[] { (-1, 0), (1, 0), (0, -1), (0, 1) })
+            foreach (var (dx, dy) in new[] { (-1, 0), (1, 0), (0, -1), (0, 1), (1,1), (-1,-1), (-1,1), (1,-1) })
             {
                 var neighbor = new Vector2Int(current.x + dx, current.y + dy);
 
